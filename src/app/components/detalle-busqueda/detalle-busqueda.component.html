@@ -1,0 +1,70 @@
+<header>
+    <app-buscador (realizarBusqueda)="busqueda()"></app-buscador>
+</header>
+
+<body class="contenedorColor">
+    <div class="container">
+
+        <div id="tags" class="tags">
+            <div class="tag" *ngFor="let tags of item.categories; let i = index">
+              
+                <div *ngIf="i+1 == ultimaCategoria">
+                    <span style="font-weight: bold;">{{tags}} <span *ngIf="i+1 < ultimaCategoria"> > </span></span>
+                </div>
+                <div *ngIf="i+1 != ultimaCategoria">
+                    <span>{{tags}} <span *ngIf="i+1 < ultimaCategoria"> > </span></span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="card container">
+
+        <div class="contenedorProductos card-body">
+            <div class="d-flex">
+
+                <div class="contenedorImagen">
+                    <img style="width: 680px; height: 680px;" [src]="item.picture" alt="">
+                </div>
+                <div class="row p-3" style="padding-top:16px">
+                    <div class="col-md-8 contenedorInformacion">
+                        <div style="padding-bottom:32px">
+                            <span style="font-size: 14px;">{{item.condition}} - {{item.sold_quantity}}
+                                vendidos</span>
+                        </div>
+                        <div style="max-width: 160px">
+                            <span style="font-size: 24; font-weight: bold;">{{item.title}}</span>
+                        </div>
+
+                        <div style="margin-top: 32px; font-size: 46px;">
+                            <span>{{item.price.currency}} {{item.price.amount}}</span>
+                        </div>
+
+                        <div style="margin-top: 32px;">
+                            <button type="button" (click)="realizarCompra()" style="width: 100%"
+                                class="btn btn-primary">Comprar</button>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 contenedorLugar">
+                        <span>{{item.position}}</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="padding-left: 32px;">
+                <span class="font-size:28px">Descripción del producto</span>
+                <div style="margin-top: 32px;">
+                    <span style="font-size: 16px;">
+                        {{item.description}}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>

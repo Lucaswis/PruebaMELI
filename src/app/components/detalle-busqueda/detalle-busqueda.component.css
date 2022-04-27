@@ -1,0 +1,16 @@
+.row{
+    width: 100%;
+}
+
+.tags{
+    display: inline-flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 14px;
+    color: #9999;
+}
+
+.contenedorColor{
+    background: #EEEE;
+}
+
