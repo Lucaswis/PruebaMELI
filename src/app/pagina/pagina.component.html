@@ -4,7 +4,7 @@
 
 <body>
     <div class="container">
-        <div id="tags" class="tags">
+        <!-- <div id="tags" class="tags">
             <div class="tag" *ngFor="let tags of products.categories; let i = index">
                 <div *ngIf="i+1 == ultimaCategoria">
                     <span style="font-weight: bold;">{{tags}} <span *ngIf="i+1 < ultimaCategoria"> > </span></span>
@@ -14,29 +14,33 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
 
 
         <div class="contenedorProductos">
-            <div class="d-flex" *ngFor="let item of products.items">
+            <div class="d-flex" *ngFor="let item of products">
                 <i class="d-flex" (click)="abrirDetalle(item)">
                     <div class="contenedorImagen">
-                        <img style="width: 180px; height: 180px;" [src]="item.picture" alt="">
+                        <img class="imagenClass" [src]="item.picture" alt="">
                     </div>
                     <div class="row" style="padding-top:16px">
                         <div class="col-md-8 contenedorInformacion">
                             <div style="padding-bottom:32px">
-                                <span>{{item.price.currency}} {{item.price.amount}} <span
-                                        *ngIf="item.free_shipping"><img
-                                            src="./../../assets/iconosMELI/ic_shipping@2x.png.png" alt=""></span></span>
+                                <span>
+                                    <span *ngIf="item.price.currency == 'ARS'; else elseBlock"> $</span>
+                                    <ng-template #elseBlock>US$</ng-template>
+
+                                    {{item.price.amount}} <span *ngIf="item.free_shipping"><img
+                                            src="./../../assets/iconosMELI/ic_shipping@2x.png.png" alt=""></span>
+                                </span>
                             </div>
                             <div>
-                                <span>{{item.description}}</span>
+                                <span>{{item.title}}</span>
                             </div>
                         </div>
-                        <div class="col-md-4 contenedorLugar">
+                        <!-- <div class="col-md-4 contenedorLugar">
                             <span>{{item.position}}</span>
-                        </div>
+                        </div> -->
                     </div>
                 </i>
             </div>

@@ -14,3 +14,28 @@
     background: #EEEE;
 }
 
+.imagenClass{
+    width: 680px; 
+    height: 680px;
+}
+
+
+.contenedorPrecio{
+    margin-top: 32px; 
+    font-size: 46px;
+}
+
+.contenedorTitulo{
+    font-size: 24; 
+    font-weight: bold;
+}
+
+.contenedorTituloDesc{
+    font-size:28px
+}
+
+.contenedorDescripcion{
+    max-width: 50%;
+    margin-top: 32px;
+    font-size: 16px;
+}

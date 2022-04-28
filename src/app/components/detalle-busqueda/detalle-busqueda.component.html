@@ -1,13 +1,13 @@
 <header>
-    <app-buscador (realizarBusqueda)="busqueda()"></app-buscador>
+    <app-buscador (realizarBusqueda)="busqueda($event)"></app-buscador>
 </header>
 
 <body class="contenedorColor">
     <div class="container">
 
-        <div id="tags" class="tags">
+        <!-- <div id="tags" class="tags">
             <div class="tag" *ngFor="let tags of item.categories; let i = index">
-              
+
                 <div *ngIf="i+1 == ultimaCategoria">
                     <span style="font-weight: bold;">{{tags}} <span *ngIf="i+1 < ultimaCategoria"> > </span></span>
                 </div>
@@ -16,16 +16,16 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
 
     </div>
-    <div class="card container">
+    <div class="card container" *ngIf="item">
 
         <div class="contenedorProductos card-body">
             <div class="d-flex">
 
                 <div class="contenedorImagen">
-                    <img style="width: 680px; height: 680px;" [src]="item.picture" alt="">
+                    <img class="imagenClass" [src]="item.picture" alt="">
                 </div>
                 <div class="row p-3" style="padding-top:16px">
                     <div class="col-md-8 contenedorInformacion">
@@ -34,10 +34,10 @@
                                 vendidos</span>
                         </div>
                         <div style="max-width: 160px">
-                            <span style="font-size: 24; font-weight: bold;">{{item.title}}</span>
+                            <span class="contenedorTitulo">{{item.title}}</span>
                         </div>
 
-                        <div style="margin-top: 32px; font-size: 46px;">
+                        <div class="contenedorPrecio">
                             <span>{{item.price.currency}} {{item.price.amount}}</span>
                         </div>
 
@@ -55,9 +55,9 @@
             </div>
 
             <div style="padding-left: 32px;">
-                <span class="font-size:28px">Descripción del producto</span>
-                <div style="margin-top: 32px;">
-                    <span style="font-size: 16px;">
+                <span class="contenedorTituloDesc">Descripción del producto</span>
+                <div class="contenedorDescripcion">
+                    <span>
                         {{item.description}}
                     </span>
                 </div>

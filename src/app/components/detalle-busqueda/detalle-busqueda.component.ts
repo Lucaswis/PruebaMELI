@@ -20,15 +20,12 @@ export class DetalleBusquedaComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this._itemsService.buscarItemID(this.id).subscribe((itemInfo) => {
       this.item = itemInfo.item;
-     
-      
-      this.ultimaCategoria = itemInfo.item.categories.length;
-      console.log("asd", this.item);
-
+    
     })
   }
 
-  busqueda() {
+  busqueda(detalleBusqueda: string) {
+    this._itemsService.palabraBuscada = detalleBusqueda;
     this.router.navigate(['/']);
   }
 

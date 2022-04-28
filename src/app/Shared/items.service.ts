@@ -8,11 +8,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ItemsService {
-
+  public palabraBuscada: string = "";
   constructor(private http: HttpClient) { }
 
-  showItems(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/api/items`);
+  showItems(textBusqueda: string): Observable<any> {
+
+    return this.http.get<any>(`${environment.apiUrl}/api/items?q=${textBusqueda}`);
   }
 
   buscarItems(mensaje: string): Observable<any> {
