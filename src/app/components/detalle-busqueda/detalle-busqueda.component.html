@@ -38,7 +38,10 @@
                         </div>
 
                         <div class="contenedorPrecio">
-                            <span>{{item.price.currency}} {{item.price.amount}}</span>
+                            <span>
+                                <span *ngIf="item.price.currency == 'ARS'; else elseBlock"> $</span>
+                                <ng-template #elseBlock>US$</ng-template> {{item.price.amount}}
+                            </span>
                         </div>
 
                         <div style="margin-top: 32px;">

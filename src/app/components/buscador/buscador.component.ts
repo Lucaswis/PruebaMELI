@@ -22,4 +22,11 @@ export class BuscadorComponent implements OnInit {
   home(){
     this.router.navigate(['/']);
   }
+
+  EnterSubmit(event: any){
+    if (event.code == 'Enter'){
+      this.buscar()
+    }
+    
+  }
 }

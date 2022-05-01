@@ -1,13 +1,15 @@
 <div class="containerBuscador">
     <div class="container d-flex">
-        <img (click)="home()"  src="./../../../assets/iconosMELI/Logo_ML.png" alt="">
+        <img (click)="home()" src="./../../../assets/iconosMELI/Logo_ML.png" alt="">
 
         <form action=""></form>
 
-        <input  [(ngModel)]="buscador"  style="margin-left:25px" type="buscador" class="form-control" id="buscador" placeholder="Nunca dejes de buscar">
+        <input  (keydown)="EnterSubmit($event)" [(ngModel)]="buscador" style="margin-left:25px" type="buscador" class="form-control" id="buscador"
+            placeholder="Nunca dejes de buscar">
 
 
-        <button (click)="buscar()" type="button" id="botonBuscar" class="btn botonBuscar"><img src="./../../../assets/iconosMELI/ic_Search.png" alt="">
+        <button (click)="buscar()" type="button" id="botonBuscar" class="btn botonBuscar"><img
+                src="./../../../assets/iconosMELI/ic_Search.png" alt="">
         </button>
 
     </div>
